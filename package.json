@@ -1,6 +1,6 @@
 {
   "name": "document-env-vars",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "A webpack loader for making sure your README.md documents all the environment variables your code uses",
   "main": "index.js",
   "scripts": {
