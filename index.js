@@ -7,14 +7,14 @@
 var fs = require('fs');
 var chalk = require('chalk');
 
-var basePattern = '([A-Z][A-Z_]*_[A-Z_]+)';
+var basePattern = '([A-Z][A-Z_]+)';
 var plainMatcher = new RegExp(basePattern, 'g');
 var processMatcher = new RegExp('\\benv\\.' + basePattern, 'g');
 var habitatMatcher = new RegExp('env\\.get\\([\'"`]' + basePattern, 'g');
 
 // find all SNAKE_CASE variables, optionally using a specific regexp
 // for matching more than just the base SNAKE_CASE pattern
-function findSnakeCases(input, matcher) {
+function findEnvironmentVariables(input, matcher) {
   var terms = [];
 
   matcher = matcher || plainMatcher;
@@ -25,7 +25,7 @@ function findSnakeCases(input, matcher) {
 var knownDocumented = {};
 var README = fs.readFileSync('./README.md').toString();
 
-findSnakeCases(README).forEach(function(varname) {
+findEnvironmentVariables(README).forEach(function(varname) {
   knownDocumented[varname] = true;
 });
 
@@ -45,8 +45,8 @@ function checkDocumentation(varname) {
 module.exports = function findUndocumentedEnvironmentVariables(source) {
   this.cacheable();
   // check for process.env.SOME_VAR_NAME usage
-  findSnakeCases(source, processMatcher).forEach(checkDocumentation);
+  findEnvironmentVariables(source, processMatcher).forEach(checkDocumentation);
   // check for env.get('SOME_VAR_NAME, quoted with either `, or ', or ".
-  findSnakeCases(source, habitatMatcher).forEach(checkDocumentation);
+  findEnvironmentVariables(source, habitatMatcher).forEach(checkDocumentation);
   return source;
 };
