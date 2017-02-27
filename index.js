@@ -9,7 +9,7 @@ var chalk = require('chalk');
 
 var basePattern = '([A-Z][A-Z_]*_[A-Z_]+)';
 var plainMatcher = new RegExp(basePattern, 'g');
-var processMatcher = new RegExp('process\\.env\\.' + basePattern, 'g');
+var processMatcher = new RegExp('\\benv\\.' + basePattern, 'g');
 var habitatMatcher = new RegExp('env\\.get\\([\'"`]' + basePattern, 'g');
 
 // find all SNAKE_CASE variables, optionally using a specific regexp
