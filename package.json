@@ -1,0 +1,29 @@
+{
+  "name": "document-env-vars",
+  "version": "1.0.0",
+  "description": "A webpack loader for making sure your README.md documents all the environment variables your code uses",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pomax/document-env-vars.git"
+  },
+  "keywords": [
+    "webpack",
+    "loader",
+    "environment",
+    "env",
+    "variables",
+    "vars",
+    "documentation",
+    "readme"
+  ],
+  "author": "Pomax",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pomax/document-env-vars/issues"
+  },
+  "homepage": "https://github.com/Pomax/document-env-vars#readme"
+}
