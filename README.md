@@ -39,3 +39,8 @@ Use this webpack loader the same way you would any other loader. As an example:
 
 Remember that loaders work LIFO (last in, first out) so the last loader gets triggered first. This loader does not modify any files, so the order should not matter, but running it first by placing it at the end of your loader list means that it triggers on *your* code, not on any transpiled code, making it more reliable that warnings are for real environment variables, rather than bundle-shimmed variables or the like.  
 
+## What do errors look like?
+
+Coloured text. Hopefully, helpfully coloured:
+
+![](error.png) 
